@@ -9,13 +9,6 @@ ped = PlayerPedId()
 
 IsPreso = false
 
-RegisterNetEvent('prender:teleport')
-AddEventHandler('prender:teleport',function()
-    DoScreenFadeOut(1000)
-    Wait(1000)
-    SetEntityCoords(ped,1680.1,2513.0,45.5)
-    DoScreenFadeIn(1000)
-end)
 
 funcoestabela.teleport = function()
     DoScreenFadeOut(1000)
