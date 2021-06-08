@@ -49,7 +49,7 @@ RegisterCommand('prisao', function(source,args)
                         nsource = vRP.getUserSource(nuser_id)
                         dado = vRP.query('feijons/select',{user_id = nuser_id})
                         if #dado == 0 then
-		            vRPclient.setHandcuffed(player,false)
+		                    vRPclient.setHandcuffed(player,false)
                             funcaodocliente.teleport(source)
                             vRP.execute('feijonts/inserir/pena'{user_id = nuser_id, tempo = tempo})
                             SendWebhookMessage(webhookprisao,"```prolog\n[POLICIAL]: "..user_id.." "..identity.name.." "..identity.firstname.." \n[PRENDEU:] "..nuser_id.." \n[TEMPO:] "..tempo.." \n[FOTO:] "..foto.." \n[HORARIO:] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
@@ -103,7 +103,7 @@ end
 
 AddEventHandler('vRP:playerSpwan', function(user_id,source)
     dado = vRP.query('feijons/select',{user_id = user_id)
-    if #dado == 0 then
+    if dado[1].tempo >= 1 then
         funcaodocliente.teleport(source)
         TriggerClientEvent('Notify',source,'Você saiu do servidor sem terminar sua pena! Então você voltará para a prisão para termina-la!')
     end
