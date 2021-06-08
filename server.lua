@@ -105,6 +105,6 @@ AddEventHandler('vRP:playerSpwan', function(user_id,source)
     dado = vRP.query('feijons/select',{user_id = user_id)
     if dado[1].tempo >= 1 then
         funcaodocliente.teleport(source)
-        TriggerClientEvent('Notify',source,'Você saiu do servidor sem terminar sua pena! Então você voltará para a prisão para termina-la!')
+        TriggerClientEvent('Notify',source,'aviso','Você saiu do servidor sem terminar sua pena! Então você voltará para a prisão para termina-la!')
     end
 end)
